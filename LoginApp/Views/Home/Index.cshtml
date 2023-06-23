@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Index Page";
+}
+<html>
+<head>
+</head>
+<body>
+    <h1>Login form</h1>
+    <form method="post" asp-controller="Home" asp-action="Index">
+        <label for="username"><b>Username</b></label>
+        <input type="text" name="username" placeholder="username" />
+        <br />
+        <label for="password"><b>Password</b></label>
+        <input type="text" name="password" placeholder="password" />
+        <br />
+        <button type="submit">Submit</button>
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+    </form>
+</body>
+</html> 

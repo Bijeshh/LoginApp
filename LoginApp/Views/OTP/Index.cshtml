@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "OTP";
+}
+
+<h2>OTP Verification</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <div class="alert alert-success">@ViewBag.SuccessMessage</div>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<form method="post" asp-controller="OTP" asp-action="VerifyOTP">
+    <div class="form-group">
+        <label for="otp">Enter OTP:</label>
+        <input type="text" name="enteredOTP" placeholder="enteredOTP" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Verify OTP</button>
+</form>
