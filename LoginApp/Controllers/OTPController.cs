@@ -38,8 +38,8 @@ namespace LoginApp.Controllers
         {
             string otp = OTPGenerate();
             storedOTP = otp;
-            var fromAddress = new MailAddress("018bscit008@sxc.edu.np", "Bijesh Shrestha");
-            var toAddress = new MailAddress("bijesh.shrestha11@gmail.com", "Bijesh Shrestha");
+            var fromAddress = new MailAddress("Sender Email Address", "SenderName");
+            var toAddress = new MailAddress("Receiver Email Address", "Receiver Name");
             const string subject = "OTP Verification";
             string body = $"Your OTP: {otp}";
             using (var message = new MailMessage(fromAddress, toAddress))
@@ -48,7 +48,7 @@ namespace LoginApp.Controllers
                 message.Body = body;
                 using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtpClient.Credentials = new NetworkCredential("018bscit008@sxc.edu.np", "hbyurxqxcplqobjj");
+                    smtpClient.Credentials = new NetworkCredential("Sender Email Address", "Sender SMTP credentials");
                     smtpClient.EnableSsl = true;
                     try
                     {
